@@ -20,9 +20,11 @@ class CarCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            ImageField::new('picture'),
+            ImageField::new('image')->setUploadDir('public/images/cars'),
             TextEditorField::new('information'),
             IntegerField::new('stock')
         ];
     }
+
+
 }
