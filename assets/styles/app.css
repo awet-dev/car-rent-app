@@ -1,0 +1,9 @@
+@import '~bootstrap'; 
+body {
+    background-color: lightgray;
+}
+
+.small-img {
+    width: 150px;
+    height: auto;
+}

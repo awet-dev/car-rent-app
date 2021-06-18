@@ -180,4 +180,9 @@ class Car
     {
         return $this->imageFile;
     }
+
+    public function __toString() 
+    {
+        return $this->name;
+    }
 }
