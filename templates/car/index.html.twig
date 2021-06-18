@@ -6,8 +6,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{ car.name }}</h5>
                 <p class="card-text">{{ car.information }}</p>
-                <a href="/cars/{{ car.id }}" class="btn btn-primary">Detail</a>
-                <a href="#" class="btn btn-primary">Rent</a>
+                <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn btn-primary">Detail</a>
+                <a href="{{ path('car_rent', {'id': car.id}) }}" class="btn btn-primary">Rent</a>
             </div>
         </div>
     </div>
