@@ -2,45 +2,61 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Transaction;
+use App\Form\TransactionType;
 use App\Repository\CarRepository;
 use App\Repository\TransactionRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class TransactionController extends AbstractController
 {
-    #[Route('/rent/car/{carId}', name: 'rent_car')]
-    public function index(int $carId, CarRepository $carRepository): Response
+    #[Route('/transaction', name: 'transaction')]
+    public function index(TransactionRepository $transactionRepository): Response
     {
-        $car = $carRepository->find($carId);
-
-        $transaction = new Transaction();
-        
-        $transaction->setCar($car);
-        $transaction->setMode("km");
-        $transaction->setvalue(2);
-        $transaction->setTime(new \DateTime());
-
-        $transaction->setUser($this->getUser());
-
-
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($transaction);
-        $entityManager->flush();
         return $this->render('transaction/index.html.twig', [
-            'controller_name' => 'TransactionController',
+            'transactions' => $transactionRepository->findAll(),
         ]);
     }
 
-    #[Route('/check/transaction', name: 'check_transaction')]
-    public function getTransactions(TransactionRepository $transactionRepository) 
+
+    #[Route('/rent/{id}', name: 'rent', methods: ['GET', 'POST'])]
+    public function rent(int $id, Request $request, CarRepository $carRepository): Response
     {
-        return $this->json([
-            'controller_name' => 'TransactionController',
-            'transaction' => $transactionRepository->find(1),
+        $transaction = new Transaction();
+        $form = $this->createForm(TransactionType::class, $transaction);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $transaction->setUser($this->getUser());
+            $transaction->setTime(new \DateTime());
+
+            $car = $carRepository->find($request->get('id'));
+            $transaction->setCar($car);
+
+            $entityManager->persist($transaction);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('transaction');
+        }
+
+        return $this->render('home/rent.html.twig', [
+            'transaction' => $transaction,
+            'form' => $form->createView(),
+            'car' => $carRepository->find($id),
         ]);
     }
+
+    // #[Route('/car/rent/{id}', name: 'car_rent')]
+    // public function rent(int $id, CarRepository $carRepository): Response
+    // {
+    //     return $this->render('home/rent.html.twig', [
+    //         'car' => $carRepository->find($id),
+    //     ]);
+    // }
+    
 }

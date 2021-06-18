@@ -24,13 +24,4 @@ class CarController extends AbstractController
             'car' => $carRepository->find($id),
         ]);
     }
-
-    #[Route('/car/rent/{id}', name: 'car_rent')]
-    public function rent(int $id, CarRepository $carRepository): Response
-    {
-        return $this->render('home/rent.html.twig', [
-            'car' => $carRepository->find($id),
-        ]);
-    }
-
 }
