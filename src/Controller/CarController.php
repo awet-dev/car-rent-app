@@ -20,7 +20,7 @@ class CarController extends AbstractController
     #[Route('/cars/{id}', name: 'car_detail')]
     public function detail(int $id, CarRepository $carRepository): Response
     {
-        return $this->render('car/detail.html.twig', [
+        return $this->render('home/detail.html.twig', [
             'car' => $carRepository->find($id),
         ]);
     }
