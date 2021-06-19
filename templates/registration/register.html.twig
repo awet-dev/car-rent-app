@@ -7,15 +7,68 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    {{ form_start(registrationForm, {'attr': {'class': 'row g-3 needs-validation w-75 mx-auto'}}) }}
+        <div class="col-md-4">
+            {{ form_row(registrationForm.firstName, {'attr': {'class': 'form-control', id: 'validationCustom01'}}) }}
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{ form_row(registrationForm.lastName, {'attr': {'class': 'form-control', id: 'validationCustom02'}}) }}
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', id: 'validationCustomUsername'}}) }}
+            <div class="invalid-feedback">
+                Please choose a username.
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_row(registrationForm.phoneNumber, {'attr': {'class': 'form-control', id: 'validationCustom03'}}) }}
+            <div class="invalid-feedback">
+            Please provide a valid city.
+            </div>
+        </div>
+        <div class="col-md-3">
+            {{ form_row(registrationForm.gender, {'attr': {'class': 'form-select', id: 'validationCustom04'}}) }}
+            <div class="invalid-feedback">
+            Please select a valid state.
+            </div>
+        </div>
+        <div class="col-md-3">
+            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', id: 'validationCustom05'}}) }}
+            <div class="invalid-feedback">
+            Please provide a valid zip.
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-check">
+                {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input', id: 'invalidCheck'}}) }}
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <div class="custom-file col-4">
+            {{ form_row(registrationForm.avatar, {'attr': {'class': 'custom-file-input', id: 'inputGroupFile01'}}) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
+        <div class="nav-item col-3"> 
+            <span>I already have account, 
+                <a class="nav-link" href="{{ path('app_login') }}">Sign In</a>
+            </span>
+        </div>
+
+        <div class="d-grid gap-2 py-2">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
     {{ form_end(registrationForm) }}
+
 {% endblock %}

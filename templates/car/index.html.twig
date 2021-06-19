@@ -1,15 +1,15 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 text-center py-5">
     {% for car in cars %}
         <div class="col">
-        <div class="card">
-            <img src="images/cars/{{ car.image }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ car.name }}</h5>
-                <p class="card-text">{{ car.information }}</p>
-                <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn btn-primary">Detail</a>
-                <a href="{{ path('rent', {'id': car.id}) }}" class="btn btn-primary">Rent</a>
+            <div class="card">
+                <img src="images/cars/{{ car.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.name }}</h5>
+                    <p class="card-text">{{ car.information }}</p>
+                    <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn btn-primary">Detail</a>
+                    <a href="{{ path('rent', {'id': car.id}) }}" class="btn btn-primary">Rent</a>
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
 </div>
