@@ -60,6 +60,12 @@ class Car
      */
     private $transactions;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSold;
+
+
     public function __construct()
     {
         $this->transactions = new ArrayCollection();
@@ -185,4 +191,18 @@ class Car
     {
         return $this->name;
     }
+
+    public function getIsSold(): ?bool
+    {
+        return $this->isSold;
+    }
+
+    public function setIsSold(bool $isSold): self
+    {
+        $this->isSold = $isSold;
+
+        return $this;
+    }
+
+
 }

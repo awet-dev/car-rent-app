@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Transaction;
 use App\Form\TransactionType;
+use App\Repository\CarRateRepository;
 use App\Repository\CarRepository;
 use App\Repository\TransactionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TransactionController extends AbstractController
 {
+
     #[Route('/transaction', name: 'transaction')]
     public function index(TransactionRepository $transactionRepository): Response
     {
@@ -35,13 +37,13 @@ class TransactionController extends AbstractController
             $transaction->setUser($this->getUser());
             $transaction->setTime(new \DateTime());
 
-            $car = $carRepository->find($request->get('id'));
+            $car = $carRepository->find($id);
             $transaction->setCar($car);
 
             $entityManager->persist($transaction);
             $entityManager->flush();
 
-            return $this->redirectToRoute('transaction');
+            return $this->redirectToRoute('car_quantity', ['rateId' => $transaction->getId()]);
         }
 
         return $this->render('home/rent.html.twig', [
@@ -51,12 +53,23 @@ class TransactionController extends AbstractController
         ]);
     }
 
-    // #[Route('/car/rent/{id}', name: 'car_rent')]
-    // public function rent(int $id, CarRepository $carRepository): Response
-    // {
-    //     return $this->render('home/rent.html.twig', [
-    //         'car' => $carRepository->find($id),
-    //     ]);
-    // }
+    #[Route('/car/{rateId}', name: 'car_quantity')]
+    public function carQuantity(int $rateId, TransactionRepository $transactionRepository, ): Response
+    {
+        $transaction = $transactionRepository->find($rateId);
+
+        $car = $transaction->getCar();
+
+        $manager = $this->getDoctrine()->getManager();
+        if($car->getStock() > $transaction->getValue()) {
+            $car->setStock($car->getStock() - $transaction->getValue());
+        } else {
+            $car->setIsSold(true);
+        }
+        $manager->persist($car);
+        $manager->flush();
+
+        return $this->redirectToRoute('home');
+    }
     
 }

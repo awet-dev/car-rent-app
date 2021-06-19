@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Car;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -20,6 +21,7 @@ class CarCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
+            BooleanField::new('isSold'),
             ImageField::new('image')->setUploadDir('public/images/cars'),
             TextEditorField::new('information'),
             IntegerField::new('stock')
