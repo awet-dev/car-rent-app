@@ -21,7 +21,7 @@ class CarCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            BooleanField::new('isSold'),
+            BooleanField::new('isSold')->setFormTypeOption('disabled','disabled')->hideOnForm(),
             ImageField::new('image', 'imageFile')->setUploadDir('public/images/cars')->setBasePath('/images/cars'),
             TextEditorField::new('information'),
             IntegerField::new('stock')

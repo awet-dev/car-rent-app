@@ -8,8 +8,9 @@
     </div>
 
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+        {{ form_row(form.mode) }}
+        {{ form_row(form.value, { 'attr': {'max': car.stock, 'min' : 1 } }) }}
     <input type="hidden" name="id" value="{{ car.id }}" />
     <button class="btn">{{ button_label| default('Save') }}</button>
-{{ form_end(form) }}
+    {{ form_end(form) }}
 {% endblock %}

@@ -36,15 +36,13 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Salon Management System');
+            ->setTitle('Car Jack Management');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        
-        yield MenuItem::section('Blog');
-        yield MenuItem::linkToCrud('Car Rate', 'fa fa-tags', CarRate::class);
-        yield MenuItem::linkToCrud('Car Rent', 'fa fa-tags', Transaction::class);
+        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-car');
+        yield MenuItem::linkToCrud('Car Rate', 'fa fa-star', CarRate::class);
+        yield MenuItem::linkToCrud('Transaction', 'fa fa-money', Transaction::class);
     }
 }
