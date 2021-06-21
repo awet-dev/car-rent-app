@@ -42,6 +42,10 @@ class Transaction
      */
     private $time;
 
+    public function __construct() {
+        $this->setTime(new \DateTime());
+    }
+
     public function getId(): ?int
     {
         return $this->id;

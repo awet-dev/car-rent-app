@@ -12,4 +12,4 @@ import './styles/app.css';
 import './bootstrap';
 
 // import the bootstap js
-import 'bootstrap'
+import 'bootstrap';

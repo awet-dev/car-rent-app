@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\CarRate;
+use App\Entity\Transaction;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,6 +45,6 @@ class DashboardController extends AbstractDashboardController
         
         yield MenuItem::section('Blog');
         yield MenuItem::linkToCrud('Car Rate', 'fa fa-tags', CarRate::class);
-
+        yield MenuItem::linkToCrud('Car Rent', 'fa fa-tags', Transaction::class);
     }
 }

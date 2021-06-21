@@ -1,8 +1,10 @@
+parameters:
+        app.path.car_images: /uploads/images/cars
+
 security:
     encoders:
         App\Entity\User:
             algorithm: auto
-
 
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
