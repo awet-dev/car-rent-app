@@ -8,3 +8,9 @@ body {
     width: 150px;
     height: auto;
 }
+
+.bg-img {
+    background-image: url(../images/backhground-image.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
