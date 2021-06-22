@@ -1,4 +1,4 @@
-@import '~bootstrap'; 
+@import '~bootstrap';
 
 body {
     background-color: lightgray;
@@ -13,4 +13,29 @@ body {
     background-image: url(../images/backhground-image.jpeg);
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.bg-car-img {
+    background-image: url(../images/bg-car-img.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.divider-component {
+    margin-bottom: 10px;
+    height: 5px;
+    width:80px;
+    background-color: #ec5d31;
+}
+
+.small-image {
+    width: 50px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.icon-small {
+    width: 20px;
+    height: 20px;
 }

@@ -7,21 +7,119 @@
     <div class="row p-5 bg-img">
 
         <section class="col-6 my-5">
+            <small class="text-capitalize">CARSHARING</small>
             <h1 class="fw-bold">
                 Book a Car Near You and Drive in Minutes!
             </h1>
+            <div class="divider-component"></div>
             <p class="">Book the selected car effortlessly, pay for driving only.Join our service instantly by installing our app.</p>
-            <div class="d-flex">
-                <button class="btn btn-lg btn-primary mx-1">Visit</button>
-                <button class="btn btn-lg btn-primary">See More</button>
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button">Button</button>
+                <button class="btn btn-primary" type="button">Button</button>
             </div>
         </section>
 
         <div class="col-6">
-        
+
         </div>
 
     </div>
+
+    <div class="container py-5">
+
+        <div class="row">
+            <div class="text-center">
+                <small class="text-capitalize">how it works</small>
+                <h2 class="fw-bold">Carsharing Has Never Been That Easy</h2>
+                <div class="divider-component mx-auto"></div>
+                <p>Book a car when you need to drive, save greatly, and enjoy freedom of movement.</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-4 g-4 text-center mb-5">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset('images/website/app-store-brands.svg') }}" class="card-img-top small-image" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset('images/website/car-solid.svg') }}" class="card-img-top small-image" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a short card.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset('images/website/surprise-solid.svg') }}" class="card-img-top small-image" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ asset('images/website/comments-dollar-solid.svg') }}" class="card-img-top small-image" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 bg-car-img">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <small>WELCOME TO UDRIVE</small>
+                <h2 class="fw-bold">Freedom of Movement in a Busy City</h2>
+                <div class="divider-component"></div>
+                <p>Need to get somewhere urgently? Planning a great shopping day? Book a car to move freely around the city with comfort! </p>
+                <ul class="list-unstyled">
+                    <li>
+                        <img class="icon-small" src="{{ asset('images/website/check-circle-solid.svg') }}" alt="">
+                        <span class="mx-1">Really Flexible Payment </span>
+                    </li>
+                    <li>
+                        <img class="icon-small" src="{{ asset('images/website/check-circle-solid.svg') }}" alt="">
+                        <span class="mx-1">Hundreds of Cars Near You</span>
+                    </li>
+                    <li>
+                        <img class="icon-small" src="{{ asset('images/website/check-circle-solid.svg') }}" alt="">
+                        <span class="mx-1">Plans 24/7 Support</span>
+                    </li>
+                </ul>
+                <p>UDRIVE is a carsharing service in the USA that can make every day of yours more comfortable and easier. You can book a car when you need to and pay only for time spent driving. No hidden fees or complicated payments!</p>
+                
+                <div class="row">
+                    <div class="col">
+                        <h3>1300+</h3>
+                        <div class="divider-component bg-secondary"></div>
+                        <small>Clients every month</small>
+                    </div>
+                    <div class="col">
+                        <h3>315</h3>
+                        <div class="divider-component bg-secondary"></div>
+                        <small>Cars on the map</small>
+                    </div>
+                    <div class="col">
+                        <h3>14</h3>
+                        <div class="divider-component bg-secondary"></div>
+                        <small>US cities covered</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="w-75 mx-auto">
         {% include 'car/index.html.twig' %}
     </div>
