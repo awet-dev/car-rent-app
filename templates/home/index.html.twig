@@ -27,13 +27,11 @@
 
     <div class="container py-5">
 
-        <div class="row">
-            <div class="text-center">
-                <small class="text-capitalize">how it works</small>
-                <h2 class="fw-bold">Carsharing Has Never Been That Easy</h2>
-                <div class="divider-component mx-auto"></div>
-                <p>Book a car when you need to drive, save greatly, and enjoy freedom of movement.</p>
-            </div>
+        <div class="text-center">
+            <small class="text-capitalize">how it works</small>
+            <h2 class="fw-bold">Carsharing Has Never Been That Easy</h2>
+            <div class="divider-component mx-auto"></div>
+            <p>Book a car when you need to drive, save greatly, and enjoy freedom of movement.</p>
         </div>
 
         <div class="row row-cols-1 row-cols-md-4 g-4 text-center mb-5">
@@ -75,7 +73,7 @@
             </div>
         </div>
 
-        <div class="row py-5 bg-car-img">
+        <div class="row py-5 mb-5 bg-car-img">
             <div class="col-6"></div>
             <div class="col-6">
                 <small>WELCOME TO UDRIVE</small>
@@ -118,9 +116,58 @@
             </div>
         </div>
 
-    </div>
+        <div class="text-center">
+            <small class="text-capitalize">AVAILABLE CARS</small>
+            <h2 class="fw-bold">Explore the Top Cars</h2>
+            <div class="divider-component mx-auto"></div>
+            <p>We have various car classes. Select your perfect fit on the map in the UDRIVE app.</p>
+        </div>
 
-    <div class="w-75 mx-auto">
         {% include 'car/index.html.twig' %}
+
+        <div class="text-center">
+            <small class="text-capitalize">TESTIMONIALS</small>
+            <h2 class="fw-bold">Clients' Feedback</h2>
+            <div class="divider-component mx-auto"></div>
+            <p class="w-75 mx-auto">You can leave a review about our service right in the UDRIVE app for iOS and Android, on TrustPilot, as well as on Google Play and App Store.</p>
+        </div>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner py-5">
+                <div class="carousel-item active">
+                    <div class="w-75 mx-auto text-center">
+                        <img src="{{ asset('images/website/dev-1.jpg') }}" class="d-block carousel-img-testimonials" alt="...">
+                        <h3 class="my-2">Alishia</h3>
+                        <p>I used the UDRIVE services at the airport when I needed to urgently get to an important meeting in the city center. All you need to do is install the application, select a car, and go to it. The car will open automatically and you can drive!</p>
+                        <small>June 23 2021</small>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="w-75 mx-auto text-center">
+                        <img src="{{ asset('images/website/dev-2.jpg') }}" class="d-block carousel-img-testimonials" alt="...">
+                        <h3 class="my-2">John</h3>
+                        <p>I used the UDRIVE services at the airport when I needed to urgently get to an important meeting in the city center. All you need to do is install the application, select a car, and go to it. The car will open automatically and you can drive!</p>
+                        <small>June 23 2021</small>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="w-75 mx-auto text-center">
+                        <img src="{{ asset('images/website/dev-3.jpg') }}" class="d-block carousel-img-testimonials mx-auto" alt="...">
+                        <h3 class="my-2">Amalia</h3>
+                        <p>I used the UDRIVE services at the airport when I needed to urgently get to an important meeting in the city center. All you need to do is install the application, select a car, and go to it. The car will open automatically and you can drive!</p>
+                        <small>June 23 2021</small>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
     </div>
 {% endblock %}
