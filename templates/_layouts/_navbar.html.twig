@@ -1,45 +1,30 @@
-<nav class="navbar navbar-light bg-light justify-content-between p-4">
-  <a href="/">
-    <img src="{{ asset('images/website/logo.png') }}" class="img-fluid small-img" />
-  </a>
-
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">How It Works</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Our Cars</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">FAQ</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Contacts</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LogIn</a>
-    </li>
-  </ul>
-
-{# <div class="dropdown">
-    <a class="navbar-brand dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      Profile
-                
-          
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{{ asset('images/website/logo.png') }}" class="img-fluid small-img" />
     </a>
-
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <li>
-        <a class="dropdown-item" href="#">
-          Login
-        </a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">
-          Logout
-        </a>
-      </li>
-    </ul>
-  </div> #}
-
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">How It Works</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Our Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LogIn</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
