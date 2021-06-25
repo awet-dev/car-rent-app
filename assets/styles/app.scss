@@ -1,4 +1,5 @@
 @import '~bootstrap';
+@import '~bootstrap/scss/_variables.scss';
 
 body {
     background-color: lightgray;
@@ -9,14 +10,25 @@ body {
     height: auto;
 }
 
+.custom-btn-style {
+    background-color:  black;
+}
+
+.custom-btn-style:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .bg-img {
     background-image: url(../images/backhground-image.jpeg);
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.bg-transparent-white {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 .bg-car-img {
-    background-image: url(../images/bg-car-img.jpg);
+    background-image: url(../images/rent-a-car-4.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -26,7 +38,7 @@ body {
     margin-bottom: 10px;
     height: 5px;
     width:80px;
-    background-color: #ec5d31;
+    background-color: $orange-500;
 }
 
 .small-image {
@@ -40,6 +52,22 @@ body {
     height: 20px;
 }
 
+.icon-lg {
+    font-size: 50px;
+    color: $orange-500;
+}
+
+.orange {
+    color: $orange-500
+}
+
+.purple {
+    color: $purple-500;
+}
+
+.sub-btn {
+    background-color: $purple-500;
+}
 .carousel-img {
     width: 90%;
     height: 50%;
