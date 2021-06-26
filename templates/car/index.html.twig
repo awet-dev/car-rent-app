@@ -2,7 +2,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="row">
-                {% for car in cars %}
+                {% for car in cars[0] %}
                     {% if car.isSold == false %}
                         <div class="col-4">
                             <img class="carousel-img" src="images/cars/{{ car.image }}" alt="">
@@ -29,12 +29,37 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="carousel-item">
-
-        </div>
-        <div class="carousel-item">
-
-        </div>
+        {% for array_cars in cars|reverse %}
+            <div class="carousel-item">
+                <div class="row">
+                    {% for car in array_cars %}
+                        {% if car.isSold == false %}
+                            <div class="col-4">
+                                <img class="carousel-img" src="images/cars/{{ car.image }}" alt="">
+                                <small>Comfort</small>
+                                <h3>{{ car.name }}</h3>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fas fa-check-circle purple"></i>
+                                        <span class="mx-1">Really Flexible Payment </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle purple"></i>
+                                        <span class="mx-1">Hundreds of Cars Near You</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle purple"></i>
+                                        <span class="mx-1">Plans 24/7 Support</span>
+                                    </li>
+                                </ul>
+                                <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn sub-btn text-white">Detail</a>
+                                <a href="{{ path('rent', {'id': car.id}) }}" class="btn sub-btn text-white">Rent</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,3 +70,4 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
