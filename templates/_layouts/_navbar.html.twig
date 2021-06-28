@@ -9,20 +9,24 @@
     <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
       <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">How It Works</a>
+          <a class="nav-link active" aria-current="page" href="#how-it-work">How It Works</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Our Cars</a>
+          <a class="nav-link" href="#welcome-to-udrive">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">FAQ</a>
+          <a class="nav-link" href="#faq">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
+          <a class="nav-link" href="#contact">Contacts</a>
         </li>
       </ul>
-      <div class="nav-item">
-        <a class="nav-link text-secondary" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-user"></i> LogIn</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa fa-user"></i> User</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{ path('app_login') }}">Log In</a></li>
+          <li><a class="dropdown-item" href="{{ path('app_register') }}">Register</a></li>
+        </ul>
       </div>
     </div>
   </div>

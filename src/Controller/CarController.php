@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\CarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,6 +24,12 @@ class CarController extends AbstractController
         return $this->render('home/detail.html.twig', [
             'car' => $carRepository->find($id),
         ]);
+    }
+
+    #[Route('/subscribe', name: 'subscribe')]
+    public function subscribe(Request $request): Response {
+        // @TODO do some thing with the email submitted from the homepage subscription form.
+        return $this->redirectToRoute('car_index');
     }
 
     public function carsArrayGrouping($cars): array

@@ -88,4 +88,5 @@ class RegistrationController extends AbstractController
     {
         return $this->render('registration/gmail.html.twig');
     }
+
 }

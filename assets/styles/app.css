@@ -25,7 +25,7 @@ body {
 }
 
 .bg-transparent-white {
-    background-color: rgba(190, 188, 188, 0.45);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .bg-car-img {
     background-image: url(../images/rent-a-car-4.png);
@@ -58,11 +58,7 @@ body {
 }
 
 .orange {
-    color: $orange-500;
-}
-
-.bg-orange {
-    background-color: $orange-500;
+    color: $orange-500
 }
 
 .purple {
