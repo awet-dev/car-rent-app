@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CarRepository;
+use App\Repository\ReviewRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,10 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class CarController extends AbstractController
 {
     #[Route('/', name: 'car_index')]
-    public function index(CarRepository $carRepository): Response
+    public function index(CarRepository $carRepository, ReviewRepository $reviewRepository): Response
     {
         return $this->render('home/index.html.twig', [
             'cars' => $this->carsArrayGrouping($carRepository->findAll()),
+            'reviews' => $reviewRepository->findAll()
         ]);
     }
 

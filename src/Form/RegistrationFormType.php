@@ -33,7 +33,9 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
             ->add('phoneNumber', TelType::class)
-            ->add('avatar', FileType::class)
+            ->add('avatar', FileType::class, [
+
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

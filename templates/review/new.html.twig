@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    review form
+{% endblock %}
+{% block body %}
+    <form action="{{ path('review_new') }}" method="post">
+        <input type="text" name="message" placeholder="write your reveiew over our services">
+        <button type="submit">Add</button>
+    </form>
+{% endblock %}
+
+

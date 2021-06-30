@@ -3,14 +3,19 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -63,9 +68,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $joinedAt;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $avatar;
+
+    /**
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="avatar")
+     * @var File
+     */
+    private $avatarFile;
 
     /**
      * @ORM\OneToOne(targetEntity=Address::class, mappedBy="user", cascade={"persist", "remove"})
@@ -76,6 +87,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $reviews;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $transactions;
+
+    public function __construct()
+    {
+        $this->reviews = new ArrayCollection();
+        $this->transactions = new ArrayCollection();
+    }
 
 
 
@@ -238,6 +265,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function setAvatarFile(File $avatarFile = null)
+    {
+        $this->avatarFile = $avatarFile;
+    }
+
+    public function getAvatarFile(): File
+    {
+        return $this->avatarFile;
+    }
 
     public function getAddress(): ?Address
     {
@@ -276,5 +312,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString() 
     {
         return $this->firstName. " " .$this->lastName;
+    }
+
+    /**
+     * @return Collection|Review[]
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getUser() === $this) {
+                $review->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Transaction[]
+     */
+    public function getTransactions(): Collection
+    {
+        return $this->transactions;
+    }
+
+    public function addTransaction(Transaction $transaction): self
+    {
+        if (!$this->transactions->contains($transaction)) {
+            $this->transactions[] = $transaction;
+            $transaction->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTransaction(Transaction $transaction): self
+    {
+        if ($this->transactions->removeElement($transaction)) {
+            // set the owning side to null (unless already changed)
+            if ($transaction->getUser() === $this) {
+                $transaction->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

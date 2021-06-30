@@ -182,7 +182,7 @@ class Car
 
     }
 
-    public function getImageFile()
+    public function getImageFile(): File
     {
         return $this->imageFile;
     }

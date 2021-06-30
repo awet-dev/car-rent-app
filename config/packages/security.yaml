@@ -1,8 +1,9 @@
 parameters:
-        app.path.car_images: /uploads/images/cars
+    app.path.car_images: /uploads/images/cars
+    app.path.user_images: /uploads/images/users
 
 security:
-    encoders:
+    password_hashers:
         App\Entity\User:
             algorithm: auto
 

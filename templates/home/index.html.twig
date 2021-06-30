@@ -80,27 +80,27 @@
                 <div class="row py-5 mb-5 bg-car-img">
                     <div class="col-md-6"></div>
                     <div class="col-md-6 bg-transparent-white">
-                        <small class="text-capitalize">welcome to udrive</small>
-                        <h2 class="fw-bold">Freedom of Movement in a Busy City</h2>
+                        <small class="text-capitalize text-white-50">welcome to udrive</small>
+                        <h2 class="fw-bold text-white">Freedom of Movement in a Busy City</h2>
                         <div class="divider-component"></div>
-                        <p>Need to get somewhere urgently? Planning a great shopping day? Book a car to move freely around the city with comfort! </p>
-                        <ul class="list-unstyled">
+                        <p class="text-white">Need to get somewhere urgently? Planning a great shopping day? Book a car to move freely around the city with comfort! </p>
+                        <ul class="list-unstyled text-white">
                             <li>
-                                <i class="fas fa-check-circle purple"></i>
+                                <i class="fas fa-check-circle orange"></i>
                                 <span class="mx-1">Really Flexible Payment </span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle purple"></i>
+                                <i class="fas fa-check-circle orange"></i>
                                 <span class="mx-1">Hundreds of Cars Near You</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle purple"></i>
+                                <i class="fas fa-check-circle orange"></i>
                                 <span class="mx-1">Plans 24/7 Support</span>
                             </li>
                         </ul>
-                        <p>UDRIVE is a carsharing service in the USA that can make every day of yours more comfortable and easier. You can book a car when you need to and pay only for time spent driving. No hidden fees or complicated payments!</p>
+                        <p class="text-white">UDRIVE is a carsharing service in the USA that can make every day of yours more comfortable and easier. You can book a car when you need to and pay only for time spent driving. No hidden fees or complicated payments!</p>
 
-                        <div class="row">
+                        <div class="row text-white-50">
                             <div class="col">
                                 <h3 class="purple">1300+</h3>
                                 <div class="divider-component bg-secondary"></div>
@@ -150,22 +150,16 @@
                                 <small>June 23 2021</small>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="w-75 mx-auto text-center">
-                                <img src="{{ asset('images/website/dev-2.jpg') }}" class="d-block carousel-img-testimonials" alt="...">
-                                <h3 class="my-2">John</h3>
-                                <p>I used the UDRIVE services at the airport when I needed to urgently get to an important meeting in the city center. All you need to do is install the application, select a car, and go to it. The car will open automatically and you can drive!</p>
-                                <small>June 23 2021</small>
+                        {% for review in reviews %}
+                            <div class="carousel-item">
+                                <div class="w-75 mx-auto text-center">
+                                    <img src="{{ asset('images/website/dev-3.jpg') }}" class="d-block carousel-img-testimonials mx-auto" alt="...">
+                                    <h3 class="my-2">{{ review.user.firstName }}</h3>
+                                        <p>{{ review.message }}</p>
+                                    <small>{{ review.createdAt|date('d-m-Y') }}</small>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="w-75 mx-auto text-center">
-                                <img src="{{ asset('images/website/dev-3.jpg') }}" class="d-block carousel-img-testimonials mx-auto" alt="...">
-                                <h3 class="my-2">Amalia</h3>
-                                <p>I used the UDRIVE services at the airport when I needed to urgently get to an important meeting in the city center. All you need to do is install the application, select a car, and go to it. The car will open automatically and you can drive!</p>
-                                <small>June 23 2021</small>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
