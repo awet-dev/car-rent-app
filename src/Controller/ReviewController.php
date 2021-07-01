@@ -11,13 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReviewController extends AbstractController
 {
-    #[Route('/', name: 'review')]
-    public function index(ReviewRepository $reviewRepository): Response
-    {
-        return $this->render('home/index.html.twig', [
-            'reviews' => $reviewRepository->findAll()
-        ]);
-    }
 
     #[Route('/review/new', name: 'review_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ReviewRepository $reviewRepository): Response

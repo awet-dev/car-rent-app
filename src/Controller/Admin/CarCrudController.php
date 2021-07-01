@@ -22,7 +22,7 @@ class CarCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             BooleanField::new('isSold'),
-            ImageField::new('image', 'imageFile')->setUploadDir('public/images/cars')->setBasePath('/images/cars'),
+            ImageField::new('image', 'imageFile')->setUploadDir('public/uploads/car_image')->setBasePath('/uploads/car_image'),
             TextEditorField::new('information'),
             IntegerField::new('stock')
         ];
