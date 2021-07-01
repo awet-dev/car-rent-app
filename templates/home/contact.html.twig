@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    contact
+{% endblock %}
+
+
+{% block body %}
+    <form class="w-75 mx-auto my-5" action="{{ path('contact') }}" method="post">
+        <div class="row mb-3">
+            <div class="col form-floating">
+                <input name="firstName" type="text" class="form-control" id="floatingFirstName" placeholder="First name" aria-label="Full Name">
+                <label class="px-4" for="floatingFirstName">Full Name</label>
+            </div>
+            <div class="col form-floating">
+                <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" aria-label="email">
+                <label class="px-4" for="floatingEmail">Email address</label>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingMessage" style="height: 100px"></textarea>
+            <label for="floatingMessage">Message</label>
+        </div>
+
+        <button class="btn-lg btn-primary form-control">Send</button>
+    </form>
+{% endblock %}
+
