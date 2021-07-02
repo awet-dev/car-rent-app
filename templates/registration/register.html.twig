@@ -7,68 +7,45 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    {{ form_start(registrationForm, {'attr': {'class': 'row g-3 needs-validation w-75 mx-auto'}}) }}
+
+{{ form_start(registrationForm, {'attr': {'class': 'row g-3 needs-validation w-75 mx-auto my-5 shadow-lg px-5 pb-5'}}) }}
+    <h2 class="text-center text-decoration-underline">Sign Up</h2>
+    <div class="col-md-4">
+        {{ form_row(registrationForm.firstName, {'attr': {'class': 'form-control', id: 'inputFirstName'}}) }}
+    </div>
         <div class="col-md-4">
-            {{ form_row(registrationForm.firstName, {'attr': {'class': 'form-control', id: 'validationCustom01'}}) }}
-            <div class="valid-feedback">
-            Looks good!
-            </div>
+            {{ form_row(registrationForm.lastName, {'attr': {'class': 'form-control', id: 'inputLastName'}}) }}
         </div>
         <div class="col-md-4">
-            {{ form_row(registrationForm.lastName, {'attr': {'class': 'form-control', id: 'validationCustom02'}}) }}
-            <div class="valid-feedback">
-            Looks good!
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
             {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', id: 'validationCustomUsername'}}) }}
-            <div class="invalid-feedback">
-                Please choose a username.
-            </div>
-            </div>
         </div>
         <div class="col-md-6">
-            {{ form_row(registrationForm.phoneNumber, {'attr': {'class': 'form-control', id: 'validationCustom03'}}) }}
-            <div class="invalid-feedback">
-            Please provide a valid city.
-            </div>
+            {{ form_row(registrationForm.phoneNumber, {'attr': {'class': 'form-control', id: 'phoneNumber'}}) }}
         </div>
-        <div class="col-md-3">
-            {{ form_row(registrationForm.gender, {'attr': {'class': 'form-select', id: 'validationCustom04'}}) }}
-            <div class="invalid-feedback">
-            Please select a valid state.
-            </div>
+        <div class="col-md-6">
+            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', id: 'plainPassword'}}) }}
         </div>
-        <div class="col-md-3">
-            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', id: 'validationCustom05'}}) }}
-            <div class="invalid-feedback">
-            Please provide a valid zip.
-            </div>
+        <div class="col-md-4">
+            {{ form_row(registrationForm.gender, {'attr': {'class': 'form-select', id: 'gender'}}) }}
         </div>
-        <div class="col-3">
+        <div class="col-md-4">
+            {{ form_row(registrationForm.avatar, {'attr': {'class': 'custom-file-input form-control', id: 'avatar'}}) }}
+        </div>
+        <div class="col-md-4">
             <div class="form-check">
+                <label class="form-check-label" for="invalidCheck">
+                </label>
                 {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input', id: 'invalidCheck'}}) }}
-                <div class="invalid-feedback">
-                    You must agree before submitting.
-                </div>
             </div>
         </div>
-
-        <div class="custom-file col-4">
-            {{ form_row(registrationForm.avatar, {'attr': {'class': 'custom-file-input', id: 'inputGroupFile01'}}) }}
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary form-control">Sign Up</button>
         </div>
 
-        <div class="nav-item col-3"> 
-            <span>I already have account, 
-                <a class="nav-link" href="{{ path('app_login') }}">Sign In</a>
-            </span>
+        <div class="text-center">
+            <span>If you already have an account, click</span>
+            <a class="text-decoration-none" href="{{ path('app_login') }}">Sign In</a>
         </div>
-
-        <div class="d-grid gap-2 py-2">
-            <button class="btn btn-primary" type="submit">Sign Up</button>
-        </div>
-    {{ form_end(registrationForm) }}
+{{ form_end(registrationForm) }}
 
 {% endblock %}

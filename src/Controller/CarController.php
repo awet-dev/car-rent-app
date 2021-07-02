@@ -23,14 +23,6 @@ class CarController extends AbstractController
         ]);
     }
 
-    #[Route('/cars/{id}', name: 'car_detail')]
-    public function detail(int $id, CarRepository $carRepository): Response
-    {
-        return $this->render('home/detail.html.twig', [
-            'car' => $carRepository->find($id),
-        ]);
-    }
-
     #[Route('/subscribe', name: 'subscribe')]
     public function subscribe(Request $request): Response {
         // @TODO do some thing with the email submitted from the homepage subscription form.

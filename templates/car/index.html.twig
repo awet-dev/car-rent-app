@@ -6,7 +6,7 @@
                     {% for car in cars[0] %}
                         {% if car.isSold == false %}
                             <div class="col-4">
-                                <img class="carousel-img" src="uploads/car_image/{{ car.image }}" alt="">
+                                <img class="carousel-img" src="/uploads/car_image/{{ car.image }}" alt="">
                                 <small>Comfort</small>
                                 <h3>{{ car.name }}</h3>
                                 <ul class="list-unstyled">
@@ -23,8 +23,7 @@
                                         <span class="mx-1">Plans 24/7 Support</span>
                                     </li>
                                 </ul>
-                                <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn sub-btn text-white">Detail</a>
-                                <a href="{{ path('rent', {'id': car.id}) }}" class="btn sub-btn text-white">Rent</a>
+                                <a href="{{ path('rent', {'id': car.id}) }}" class="btn form-control sub-btn text-white">Rent</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -54,8 +53,7 @@
                                         <span class="mx-1">Plans 24/7 Support</span>
                                     </li>
                                 </ul>
-                                <a href="{{ path('car_detail', {'id': car.id}) }}" class="btn sub-btn text-white">Detail</a>
-                                <a href="{{ path('rent', {'id': car.id}) }}" class="btn sub-btn text-white">Rent</a>
+                                <a href="{{ path('rent', {'id': car.id}) }}" class="btn sub-btn form-control text-white">Rent</a>
                             </div>
                         {% endif %}
                     {% endfor %}
