@@ -79,11 +79,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $avatarFile;
 
     /**
-     * @ORM\OneToOne(targetEntity=Address::class, mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $address;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
@@ -272,23 +267,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getAvatarFile(): File
     {
         return $this->avatarFile;
-    }
-
-    public function getAddress(): ?Address
-    {
-        return $this->address;
-    }
-
-    public function setAddress(Address $address): self
-    {
-        // set the owning side of the relation if necessary
-        if ($address->getUser() !== $this) {
-            $address->setUser($this);
-        }
-
-        $this->address = $address;
-
-        return $this;
     }
 
     public function isVerified(): bool
