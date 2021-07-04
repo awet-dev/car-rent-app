@@ -115,7 +115,9 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('registration/change_password.html.twig');
+        return $this->render('registration/change_password.html.twig', [
+            'user' => $this->getUser()
+        ]);
     }
 
 }

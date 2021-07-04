@@ -1,0 +1,73 @@
+<a href="" class="text-decoration-none text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-user"></i> Profile</a>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <nav id="offcanvasRightLabel" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ path('home') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+            </ol>
+        </nav>
+
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            {% if user %}
+                <div class="alert alert-primary d-flex justify-content-between" role="alert">
+                    <img class="rounded-circle w-25" src="/uploads/user_image/{{ user.avatar }}" alt="">
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <td class="align-bottom">Logged as {{ user.username }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-danger d-flex justify-content-between" role="alert">
+                    <img class="rounded-circle w-25" src="{{ asset('images/website/dev-3.jpg') }}" alt="">
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <td class="align-bottom">Login by clicking
+                                <a class="text-decoration-none" href="{{ path('app_login') }}">Here</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+        
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Password</div>
+                    To change password
+                </div>
+                <span class="badge rounded-pill">
+                    <a href="{{ path('change_password') }}">click Here</a>
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Review</div>
+                    To add review
+                </div>
+                <span class="badge rounded-pill">
+                    <a href="{{ path('review_new') }}">click Here</a>
+                </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Subheading</div>
+                    Cras justo odio
+                </div>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+        </ul>
+
+
+    </div>
+</div>

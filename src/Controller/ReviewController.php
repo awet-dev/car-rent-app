@@ -28,6 +28,8 @@ class ReviewController extends AbstractController
                 'reviews' => $reviewRepository->findAll()
             ]);
         }
-        return $this->render('review/new.html.twig');
+        return $this->render('review/new.html.twig', [
+            'user' => $this->getUser()
+        ]);
     }
 }

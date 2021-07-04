@@ -13,5 +13,3 @@ import './bootstrap';
 
 // import the bootstrap js
 import 'bootstrap'
-
-import './js/interactive'

@@ -20,6 +20,7 @@ class CarController extends AbstractController
             'reviews' => $reviewRepository->findAll(),
             'cars_quantity' => count($carRepository->findAll()),
             'users_quantity' => count($userRepository->findAll()),
+            'user' => $this->getUser()
         ]);
     }
 
