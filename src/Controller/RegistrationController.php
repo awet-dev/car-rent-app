@@ -66,7 +66,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('open_gmail');
+            return $this->render('registration/gmail.html.twig');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -94,10 +94,28 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_register');
     }
 
-    #[Route('/open/gmail', name: 'open_gmail')]
-    public function openGmail(): Response
+    #[Route('change/password', name: 'change_password')]
+    public function changePassword(Request $request, UserPasswordHasherInterface $userPasswordHasher): Response
     {
-        return $this->render('registration/gmail.html.twig');
+        if ($request->isMethod('POST')) {
+            $oldPassword = $request->get('oldPassword');
+            $newPassword = $request->get('newPassword');
+            $confirmPassword = $request->get('confirmPassword');
+
+            $user = $this->getUser();
+
+            if (password_Verify($oldPassword, $user->getPassword()) && $newPassword == $confirmPassword) {
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword($user, $newPassword)
+                );
+
+                $manager = $this->getDoctrine()->getManager();
+                $manager->flush();
+            }
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('registration/change_password.html.twig');
     }
 
 }
