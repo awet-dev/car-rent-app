@@ -17,7 +17,7 @@ use Gedmo\Sluggable\Util\Urlizer;
 
 class RegistrationController extends AbstractController
 {
-    private $emailVerifier;
+    private EmailVerifier $emailVerifier;
 
     public function __construct(EmailVerifier $emailVerifier)
     {
@@ -66,11 +66,14 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->render('registration/gmail.html.twig');
+            return $this->render('registration/gmail.html.twig', [
+                'user' => $this->getUser()
+            ]);
         }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'user' => $this->getUser()
         ]);
     }
 

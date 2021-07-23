@@ -30,7 +30,9 @@ class HomeController extends AbstractController
 
             return $this->redirectToRoute("home");
         }
-        return $this->render('home/contact.html.twig');
+        return $this->render('home/contact.html.twig', [
+            'user' => $this->getUser()
+        ]);
     }
 
     public function sendEmail($mailer, $FullName, $email, $message)

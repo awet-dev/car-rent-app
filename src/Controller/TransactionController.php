@@ -19,6 +19,7 @@ class TransactionController extends AbstractController
     {
         return $this->render('transaction/index.html.twig', [
             'transactions' => $transactionRepository->findAll(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -48,6 +49,7 @@ class TransactionController extends AbstractController
             'transaction' => $transaction,
             'form' => $form->createView(),
             'car' => $carRepository->find($id),
+            'user' => $this->getUser()
         ]);
     }  
     
